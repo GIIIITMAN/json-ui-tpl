@@ -54,6 +54,10 @@ export default (props) => {
             return false;
         },
         jumpTo: props.jumpTo || ((to, action) => {
+            console.log(action);
+            console.log(window.location);
+            let href = window.location.origin + to;
+            window.location.href = href;
         }),
         notify,
         alert,
