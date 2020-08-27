@@ -67,6 +67,13 @@ const schema = {
         "level": "info",
         "actionType": "link",
         "link": CONTEXT_PATH + "/crud"
+    },
+    {
+        "label": "404",
+        "type": "button",
+        "level": "warning",
+        "actionType": "link",
+        "link": CONTEXT_PATH + "/notfound"
     }]
 };
 
