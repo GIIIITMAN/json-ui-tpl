@@ -13,15 +13,24 @@ const schema = {
         messages: {
             saveSuccess: '登录成功，欢迎光临！'
         },
+        data: {
+            username: "youtube",
+            repeat: "repeat you password"
+        },
         controls: [
             {
+                data: {
+                    password: 123456
+                },
                 children: (props) => (
                     <div className="list-group list-group-sm">
                         {props.renderFormItems({
                             controls: [
                                 {
                                     name: 'username',
-                                    children: (props) => (
+                                    children: (props) => {
+                                        // console.log(props.getValue());
+                                        return (
                                         <div className="list-group-item">
                                             <input
                                                 placeholder="用户名"
@@ -31,7 +40,7 @@ const schema = {
                                                 onChange={(e) => props.onChange(e.currentTarget.value)}
                                             />
                                         </div>
-                                    )
+                                    )}
                                 },
                                 {
                                     name: 'password',
@@ -40,6 +49,20 @@ const schema = {
                                             <input
                                                 placeholder="密码"
                                                 type="password"
+                                                className="form-control no-shadow no-border"
+                                                value={props.value || ''}
+                                                onChange={(e) => props.onChange(e.currentTarget.value)}
+                                            />
+                                        </div>
+                                    )
+                                },
+                                {
+                                    name: 'repeat',
+                                    children: (props) => (
+                                        <div className="list-group-item">
+                                            <input
+                                                placeholder="重复"
+                                                type="text"
                                                 className="form-control no-shadow no-border"
                                                 value={props.value || ''}
                                                 onChange={(e) => props.onChange(e.currentTarget.value)}
@@ -77,15 +100,4 @@ const schema = {
     }]
 };
 
-const mapStateToProps = state => {
-    return {
-        data: {
-            count: state.response.count
-        }
-    };
-}
-
-const mapDispatchToProps = dispatch => {
-}
-
-export default connect(mapStateToProps)(schemaToComponent(schema));
+export default connect()(schemaToComponent(schema));
