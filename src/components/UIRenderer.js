@@ -1,5 +1,6 @@
 import { render as renderSchema } from 'amis';
 import { useStore } from 'react-redux';
+import axios from 'axios';
 import { doGet, doPost } from '../actions/httpRequest';
 
 export default (props) => {
@@ -7,20 +8,17 @@ export default (props) => {
     let schema = props.schema || {};
     let fetcher = props.fetcher || (({url, method, data, responseType, config, headers}) => {
         // console.log(url, ';', method, ';', data, ';', config, ';', headers);
-        return fetch(
+        return axios.get(
             url,
             {
-                body: data,
+                params: data,
                 headers: {
                     ...headers
                 },
                 method,
-                config,
-                mode: 'cors',
+                ...config,
             }
-        ).then(resp => {
-            return resp.json();
-        }).then(data => {
+        ).then(resp => resp.data).then(data => {
             switch (method) {
                 case 'get':
                     store.dispatch(doGet({

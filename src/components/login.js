@@ -97,6 +97,20 @@ const schema = {
         "level": "warning",
         "actionType": "link",
         "link": CONTEXT_PATH + "/notfound"
+    },
+    {
+        "label": "page1",
+        "type": "button",
+        "level": "info",
+        "actionType": "link",
+        "link": CONTEXT_PATH + "/page1"
+    },
+    {
+        "label": "page2",
+        "type": "button",
+        "level": "info",
+        "actionType": "link",
+        "link": CONTEXT_PATH + "/page2"
     }]
 };
 
