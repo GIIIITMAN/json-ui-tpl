@@ -12,10 +12,10 @@ export default (props) => {
         <div className="routes-wrapper">
             <Switch>
                 <Redirect to={`${CONTEXT_PATH}/login`} from={`${CONTEXT_PATH}/`} exact />
-                <Route path={`${CONTEXT_PATH}/login`} exact component={() => <Login p="abc" />} />
-                <Route path={`${CONTEXT_PATH}/crud`} exact component={(Crud)} />
-                <Route path={`${CONTEXT_PATH}/page1`} exact component={() => <Page pn="react" />} />
-                <Route path={`${CONTEXT_PATH}/page2`} exact component={() => <Page pn="google" />} />
+                <Route path={`${CONTEXT_PATH}/login`} exact component={Login} />
+                <Route path={`${CONTEXT_PATH}/crud`} exact component={Crud} />
+                <Route path={`${CONTEXT_PATH}/page1`} exact component={() => <Page pn="hello-world" />} />
+                <Route path={`${CONTEXT_PATH}/page2`} exact component={() => <Page pn="sql-design" />} />
                 <Route component={NotFound} />
             </Switch>
         </div>

@@ -7,11 +7,11 @@ export default (props) => {
     const store = useStore();
     let schema = props.schema || {};
     let fetcher = props.fetcher || (({url, method, data, responseType, config, headers}) => {
-        // console.log(url, ';', method, ';', data, ';', config, ';', headers);
-        return axios.get(
-            url,
+        console.log(url, ';', method, ';', data, ';', config, ';', headers);
+        return axios(
             {
-                params: data,
+                url,
+                data,
                 headers: {
                     ...headers
                 },

@@ -16,9 +16,9 @@ export default (props) => {
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
-            'https://hn.algolia.com/api/v1/search?query=' + props.pn,
+            'http://localhost:1337/page/byPath/' + props.pn,
             );
-            setSchema(result.schema || defaultSchema);
+            setSchema(result.data.data && result.data.data.schema || defaultSchema);
         };
         fetchData();
     }, []);
